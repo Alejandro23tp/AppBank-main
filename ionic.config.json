@@ -1,0 +1,7 @@
+{
+  "name": "Banco Mano Amiga",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
