@@ -177,8 +177,8 @@ export class SemanalPage implements OnInit {
                 fila.Semana,
                 fila.TotalSemana,
                 fila.TotalPrestamos,
-                fila.totalinteres,
-                fila.prestamoscancelado,
+                fila.TotalInteres,
+                fila.PrestamosCancelado,
                 fila.SaldoAnterior
               ])
             ]
