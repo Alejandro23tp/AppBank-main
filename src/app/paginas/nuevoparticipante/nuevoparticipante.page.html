@@ -2,35 +2,60 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="cerrarModal()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>{{ isEditing ? 'Editar Participante' : 'Nuevo Participante' }}</ion-title>
+    <ion-title>
+      {{ isEditing ? 'Editar Participante' : 'Nuevo Participante' }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <ion-list lines="full">
-      <ion-item>
-        <ion-label position="floating">Cupos</ion-label>
-        <ion-input type="number" [(ngModel)]="nuevoParticipante.cupo" clearInput></ion-input>
-      </ion-item>
+    <ion-card-header>
+      <ion-card-title>
+        {{ isEditing ? 'Edita los datos del participante' : 'Ingresa los datos del nuevo participante' }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label position="floating">Cupos</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="nuevoParticipante.cupo"
+            clearInput>
+          </ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="nuevoParticipante.nombre" clearInput></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="nuevoParticipante.nombre"
+            clearInput>
+          </ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Teléfono</ion-label>
-        <ion-input type="tel" [(ngModel)]="nuevoParticipante.telefono" clearInput></ion-input>
-      </ion-item>
-    </ion-list>
+        <ion-item>
+          <ion-label position="floating">Teléfono</ion-label>
+          <ion-input
+            type="tel"
+            [(ngModel)]="nuevoParticipante.telefono"
+            clearInput>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
   </ion-card>
 
   <div class="ion-padding">
-    <ion-button expand="block" color="primary" shape="round" (click)="isEditing ? actualizarParticipante() : guardarNuevoParticipante()">
+    <ion-button
+      expand="block"
+      color="primary"
+      shape="round"
+      (click)="isEditing ? actualizarParticipante() : guardarNuevoParticipante()">
       {{ isEditing ? 'Actualizar' : 'Guardar' }}
     </ion-button>
   </div>

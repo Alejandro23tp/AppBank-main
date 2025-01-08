@@ -10,7 +10,8 @@ import { LoginService } from 'src/app/servicios/login.service';
 })
 export class LoginPage {
   loginForm: FormGroup;
-  errorMessage: string='';
+  errorMessage: string = '';
+  isLoading: boolean = false;  // Variable para controlar el estado de carga
 
   constructor(
     private fb: FormBuilder,
@@ -26,16 +27,26 @@ export class LoginPage {
 
   async onLogin() {
     if (this.loginForm.valid) {
+      this.isLoading = true;  // Activar el spinner
       const objlogin = this.loginForm.value;
+
       this.loginService.login(objlogin).subscribe(
         async (response) => {
+          this.isLoading = false;  // Desactivar el spinner
           
-          if (response.cant===1) {
-            this.errorMessage = ''; // Clear any previous error message
+          if (response.cant === 1) {
+            this.errorMessage = ''; // Limpiar cualquier mensaje de error anterior
             this.navCtrl.navigateForward('/principal');
             const ObjJSON = response.data;
             console.log(ObjJSON.usr_usuario);
             this.loginService.setUsrId(ObjJSON.usr_usuario);
+            const toast = await this.toastCtrl.create({
+              message: "Ingreso Exitoso",
+              duration: 2000,
+              position: 'bottom',
+              color: 'success'
+            });
+            await toast.present();
           } else {
             this.errorMessage = response.mensaje || 'Credenciales incorrectas';
             const toast = await this.toastCtrl.create({
@@ -48,6 +59,7 @@ export class LoginPage {
           }
         },
         async (error) => {
+          this.isLoading = false;  // Desactivar el spinner
           this.errorMessage = 'Ha ocurrido un error. Por favor, inténtelo de nuevo.';
           const toast = await this.toastCtrl.create({
             message: this.errorMessage,
@@ -60,6 +72,4 @@ export class LoginPage {
       );
     }
   }
-  
-  
 }

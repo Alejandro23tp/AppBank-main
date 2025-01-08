@@ -25,13 +25,212 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+/* Fondo general */
+ion-content {
+  --background: #a3a6e0; /* Color pastel rosado */
+  color: #444; /* Texto oscuro para contraste */
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* Encabezado */
+ion-header {
+  ion-toolbar {
+    --background: #d1d5f1; /* Fondo pastel lila claro */
+    --border-color: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    ion-title {
+      font-size: 1.6rem; /* Tamaño del título más grande */
+      color: #555; /* Color oscuro para el título */
+      font-weight: bold; /* Título en negrita */
+      text-align: center;
+    }
+  }
+}
+
+/* Títulos y subtítulos dentro de las tarjetas */
+ion-card-title,
+ion-card-subtitle {
+  color: #333; /* Un tono más oscuro para contrastar */
+  font-weight: 500; /* Texto en negrita para mayor jerarquía */
+}
+
+
+/* Texto del contenido dentro de las tarjetas */
+ion-card-content {
+  color: #444; /* Texto ligeramente más oscuro para mejor legibilidad */
+  padding: 1rem;
+}
+
+/* Tarjetas generales */
+ion-card {
+  margin: 1.5rem auto;
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+  --background: rgba(255, 255, 255, 0.95); /* Fondo blanco más opaco */
+  padding: 1.2rem; /* Espaciado dentro de la tarjeta */
+}
+
+/* Inputs */
+ion-input {
+  --color: #555;
+  --placeholder-color: #888;
+  font-size: 1.1rem; /* Mayor tamaño de fuente */
+  --border-radius: 8px; /* Bordes redondeados en los inputs */
+  padding: 0.8rem; /* Más espacio dentro del input */
+}
+
+/* Botón principal */
+ion-button {
+  margin: 1rem 0;
+  --border-radius: 15px; /* Bordes más redondeados */
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05); /* Un poco más de escala para el hover */
+    background-color: #e9d7fa; /* Fondo verde suave al hacer hover */
+  }
+
+  &[color="primary"] {
+    --background: #5a67d8; /* Verde pastel */
+    --background-hover: #9adfe4; 
+  }
+
+  ion-icon {
+    font-size: 1.4rem; /* Icono un poco más grande */
+    margin-right: 0.6rem;
+  }
+}
+
+/* Tarjetas y listas */
+ion-list {
+  --background: #dcdeff; /* Fondo suave para las listas */
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* Ítems de la lista */
+ion-item {
+  --background: #dcdeff; /* Fondo suave para los ítems */
+  --color: #5D5D5D;
+}
+
+/* Etiquetas */
+ion-label {
+  color: #666; /* Color gris para etiquetas */
+  font-weight: 500;
+}
+
+/* Iconos */
+ion-icon {
+  color: #8F94FB; /* Azul pastel */
+}
+
+/* Texto de información */
+.card-content-text {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Texto de advertencia o mensajes */
+ion-toast .toast-wrapper {
+  --background: #ffe4e1; /* Pastel coral */
+  --color: #444;
+}
+
+/* Estilos adicionales basados en tu código */
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E8CCBF, #8f94fb);
+}
+
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+  h1 {
+    color: #4e54c8;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+
+  ion-label {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    display: block;
+  }
+}
+
+.custom-input {
+  --background: #f5f5f5;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --border-radius: 10px;
+  --color: #333;
+  --placeholder-color: #999;
+  margin-top: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f5f5f5;
+  color: #333;
+
+  &.ion-valid {
+    --background: #f8f9fa;
+  }
+
+  &.ion-touched.ion-invalid {
+    border-color: var(--ion-color-danger);
+  }
+}
+
+.login-button {
+  --background: #E9D6EC;
+  --border-radius: 10px;
+  --padding-top: 1.2rem;
+  --padding-bottom: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  
+  &:hover {
+    --background: #E9D6EC;
+  }
+}
+
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0.8; /* Hace la imagen más transparente */
+  filter: brightness(1.2) contrast(0.8); /* Aclara y reduce el contraste */
+}

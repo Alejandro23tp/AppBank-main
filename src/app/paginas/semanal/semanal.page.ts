@@ -19,6 +19,8 @@ import { Filesystem, Directory } from '@capacitor/filesystem';
 export class SemanalPage implements OnInit {
   filas: any[] = [];
   prestamistas: any[] = [];
+  saldosPorSemana: { [key: string]: number } = {}; // Objeto para guardar los saldos por semana
+
 
   constructor(
     private semanasService: SemanasService,
@@ -36,38 +38,66 @@ export class SemanalPage implements OnInit {
     this.semanasService.conseguirDatosSemanas().subscribe(
       (response: any) => {
         if (response.data) {
-          let saldoAcumulado = 0;
-          let almacenandoPrestamos = 0;
-    
-          this.filas = response.data.map((dato: any) => {
-            const totalprestamos = dato.totalprestamos === null ? 0 : parseFloat(dato.totalprestamos);
-            const prestamosPagado = dato.prestamospagado === null ? 0 : parseFloat(dato.prestamospagado);
-            const totalInteres = dato.totalinteres === null ? 0 : dato.totalinteres;
-            
-            almacenandoPrestamos += prestamosPagado;
-            saldoAcumulado = parseFloat(dato.saldoanterior) + almacenandoPrestamos;
-
+          console.log('Datos recibidos del servicio (sin ordenar):', response.data);
+  
+          // Ordenar las semanas por su número (Semana 1, Semana 2, etc.)
+          const datosOrdenados = response.data.sort((a: any, b: any) => {
+            const numeroSemanaA = parseInt(a.semana.split(' ')[1]);
+            const numeroSemanaB = parseInt(b.semana.split(' ')[1]);
+            return numeroSemanaA - numeroSemanaB;
+          });
+  
+          console.log('Datos ordenados por semana:', datosOrdenados);
+  
+          let saldoAnterior = 0; // Inicializamos el saldo acumulado
+  
+          this.filas = datosOrdenados.map((dato: any) => {
+            const {
+              totalsemana = 0,
+              totalprestamos = 0,
+              prestamospagado = 0,
+              totalinteres = 0,
+              semana,
+            } = dato;
+  
+            const totalSemana = Number(totalsemana);
+            const totalPrestamos = Number(totalprestamos);
+            const prestamosPagado = Number(prestamospagado);
+            const totalInteres = Number(totalinteres);
+  
+            // Calcular el saldo actual
+            const saldoActual =
+              semana === 'Semana 1'
+                ? totalSemana + totalInteres + prestamosPagado - totalPrestamos
+                : saldoAnterior + totalSemana + totalInteres + prestamosPagado - totalPrestamos;
+  
+            console.log(`Saldo calculado para ${semana}:`, saldoActual);
+  
+            // Guardar el saldo actual para la siguiente iteración
+            saldoAnterior = saldoActual;
+  
             return {
-              Semana: dato.semana,
-              TotalSemana: dato.totalsemana,
-              TotalPrestamos: totalprestamos,
-              totalinteres: totalInteres,
-              prestamoscancelado: prestamosPagado,
-              SaldoAnterior: saldoAcumulado,
+              Semana: semana,
+              TotalSemana: totalSemana,
+              TotalPrestamos: totalPrestamos,
+              TotalInteres: totalInteres,
+              PrestamosCancelado: prestamosPagado,
+              SaldoAnterior: saldoActual,
               Participantes: [],
-              expand: false
+              expand: false,
             };
           });
-    
+  
+          console.log('Filas generadas:', this.filas);
           this.listarPrestamistas();
         }
       },
       (error) => {
-        console.error('Error al cargar los datos', error);
+        console.error('Error al cargar los datos:', error);
       }
     );
   }
-
+  
   listarPrestamistas() {
     this.prestamoService.listarPrestamismas().subscribe(
       (response: any) => {

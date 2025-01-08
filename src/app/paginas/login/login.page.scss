@@ -1,91 +1,99 @@
-/* Base styles (apply for both light and dark modes) */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f5f7; /* Light background color */
-    color: #333; /* Default text color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensures full viewport height */
-  }
-  
-  .login-container {
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 10px; /* Consistent border radius */
-    background-color: #fff; /* Light mode background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  }
-  
-  ion-header, ion-content {
-    padding: 0; /* Remove default padding */
-  }
-  
-  ion-title {
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E8CCBF, #8f94fb);
+}
+
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+  h1 {
+    color: #4e54c8;
+    text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #000000; /* Default text color */
+    margin-bottom: 2rem;
   }
-  
-  ion-toolbar {
-    background-color: #3f51b5; /* Initial toolbar color (can be adjusted) */
-  }
-  
-  ion-item {
-    margin-bottom: 15px;
-    --border-width: 0; /* Remove Ionic's default item border */
-  }
-  
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+
   ion-label {
-    font-size: 16px;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    display: block;
   }
-  
-  ion-input {
-    padding: 8px;
-    border: 1px solid #ccc; /* Adjust border color */
-    border-radius: 4px;
-    width: 100%;
+}
+
+.custom-input {
+  --background: #f5f5f5;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --border-radius: 10px;
+  --color: #333;
+  --placeholder-color: #999;
+  margin-top: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #f5f5f5;
+  color: #333;
+
+  &.ion-valid {
+    --background: #f8f9fa;
   }
-  
-  ion-button {
-    background-color: #45bad7; /* Green color for light mode */
-    color: white;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+
+  &.ion-touched.ion-invalid {
+    border-color: var(--ion-color-danger);
   }
+}
+
+.login-button {
+  --background: #E9D6EC;
+  --border-radius: 10px;
+  --padding-top: 1.2rem;
+  --padding-bottom: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
   
-  ion-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+  &:hover {
+    --background: #E9D6EC;
   }
-  
-  /* Dark mode styles (override base styles) */
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #222;
-      color: #ddd;
-    }
-  
-    .login-container {
-      background-color: #333; /* Dark mode background */
-      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Adjust shadow for dark mode */
-    }
-  
-    ion-toolbar, ion-item {
-      background-color: #444; /* Adjust background color for dark mode */
-    }
-  
-    ion-input, ion-button {
-      border-color: #555; /* Adjust border color for dark mode */
-    }
-  
-    ion-button {
-      background-color: #3f51b5; /* Blue color for dark mode */
-    }
-  
-    ion-button:hover {
-      background-color: #283a7c; /* Darker blue on hover */
-    }
-  }
-  
+}
+
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0.8; // Hace la imagen más transparente
+  filter: brightness(1.2) contrast(0.8); // Aclara y reduce el contraste
+ }
+
+ .loading-spinner {
+  display: block;
+  margin: 0 auto; /* Centra horizontalmente */
+  text-align: center;
+}

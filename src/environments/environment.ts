@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apibank: 'https://apibank-pjvaj.ondigitalocean.app/api/',
+  apibank: 'https://proyecto-apibank.onrender.com/api/',
 };
 
 

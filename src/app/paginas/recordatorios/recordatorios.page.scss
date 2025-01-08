@@ -1,0 +1,15 @@
+/* Tarjetas generales */
+ion-card {
+    margin: 1.5rem auto;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    background: linear-gradient(135deg, #E8CCBF, #8f94fb);
+    padding: 1.2rem; /* Espaciado dentro de la tarjeta */
+}
+
+/* Tarjetas y listas */
+ion-list {
+    background: #a3a6e0; /* Fondo suave para las listas */
+    border-radius: 12px;
+    padding: 1rem;
+}

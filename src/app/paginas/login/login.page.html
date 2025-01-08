@@ -1,26 +1,27 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>BANCO MANO AMIGA</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="logo-container">
+        <img src="assets/images/BancoManoAmiga.jpg" class="logo-image">
+      </div>
+      <h1>BANCO MANO AMIGA</h1>
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <ion-input formControlName="usr_correo" type="email" class="custom-input" placeholder="Ingrese su correo" required></ion-input>
+        </div>
 
-<ion-content class="login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <ion-item lines="none"> <ion-label position="stacked">Correo electrónico</ion-label>
-      <ion-input formControlName="usr_correo" type="email" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label position="stacked">Contraseña</ion-label>
-      <ion-input formControlName="password" type="password" required></ion-input>
-    </ion-item>
-    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Iniciar sesión</ion-button>
-  </form>
+        <div class="form-group">
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password" class="custom-input" placeholder="Ingrese su contraseña" required></ion-input>
+        </div>
+        <ion-spinner *ngIf="isLoading" name="bubbles" class="loading-spinner"></ion-spinner>
+        <ion-button expand="block" type="submit" [disabled]="loginForm.invalid || isLoading" class="login-button">
+          INICIAR SESIÓN
+        </ion-button>
 
-  <ion-toast
-    *ngIf="errorMessage"
-    [message]="errorMessage"
-    duration="2000"
-    position="bottom"
-    color="danger">
-  </ion-toast>
+      </form>
+    </div>
+  </div>
 </ion-content>

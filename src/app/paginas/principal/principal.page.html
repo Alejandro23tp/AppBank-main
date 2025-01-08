@@ -1,49 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Principal</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-title>
+      <ion-icon name="home-outline" style="margin-right: 8px;"></ion-icon>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Salir
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Principal</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true" class="login-container">
   <ion-grid>
+    <!-- Bienvenida -->
     <ion-row>
-      <ion-col size="12">
-        <ion-card>
+      <ion-col size-md="6" offset-md="3" size-xs="12">
+        <ion-card class="welcome-card">
           <ion-card-header>
             <ion-card-title>Bienvenido a Banco Mano Amiga</ion-card-title>
             <ion-card-subtitle>Gestión de las finanzas</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             <ion-button expand="block" color="primary" routerLink="/participantes">
+              <ion-icon slot="start" name="people-outline"></ion-icon>
               Participantes
             </ion-button>
             <ion-button expand="block" color="secondary" routerLink="/semanal">
+              <ion-icon slot="start" name="calendar-outline"></ion-icon>
               Tabla Semanal
             </ion-button>
             <ion-button expand="block" color="tertiary" routerLink="/recordatorios">
+              <ion-icon slot="start" name="alarm-outline"></ion-icon>
               Recordatorios
             </ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
+
+    <!-- Información general -->
     <ion-row>
-      <ion-col size="12">
-        <ion-card>
+      <ion-col size-md="6" offset-md="3" size-xs="12">
+        <ion-card class="info-card">
           <ion-card-header>
             <ion-card-title>Información General</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p> El Banco Mano Amiga es una institución financiera comunitaria que se caracteriza por su enfoque en el apoyo mutuo y la solidaridad entre sus miembros. Está diseñado para ofrecer servicios financieros accesibles a personas que buscan mejorar su bienestar..</p>
+            <p class="card-content-text">
+              El Banco Mano Amiga es una institución financiera comunitaria que se caracteriza por su enfoque en el apoyo mutuo y la solidaridad entre sus miembros. Está diseñado para ofrecer servicios financieros accesibles a personas que buscan mejorar su bienestar.
+            </p>
           </ion-card-content>
         </ion-card>
       </ion-col>

@@ -1,0 +1,112 @@
+/* Fondo general */
+ion-content {
+    --background: #8e91d0; /* Color pastel rosado */
+    color: #444; /* Texto oscuro para contraste */
+}
+
+/* Encabezado */
+ion-header {
+    ion-toolbar {
+        --background: #F8E8F5; /* Fondo pastel lila claro */
+        --border-color: transparent;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        ion-title {
+            font-size: 1.6rem; /* Tamaño del título más grande */
+            color: #555; /* Color oscuro para el título */
+            font-weight: bold; /* Título en negrita */
+            text-align: center;
+        }
+    }
+}
+
+/* Títulos y subtítulos dentro de las tarjetas */
+ion-card-title,
+ion-card-subtitle {
+    color: #333; /* Un tono más oscuro para contrastar */
+    font-weight: 500; /* Texto en negrita para mayor jerarquía */
+}
+
+/* Texto del contenido dentro de las tarjetas */
+ion-card-content {
+    color: #444; /* Texto ligeramente más oscuro para mejor legibilidad */
+    padding: 1rem;
+}
+
+/* Tarjetas generales */
+ion-card {
+    margin: 1.5rem auto;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+    background: linear-gradient(135deg, #E8CCBF, #8f94fb);
+    padding: 1.2rem; /* Espaciado dentro de la tarjeta */
+}
+
+/* Inputs */
+ion-input {
+    --color: #555;
+    --placeholder-color: #999;
+    font-size: 1.1rem; /* Mayor tamaño de fuente */
+    --border-radius: 8px; /* Bordes redondeados en los inputs */
+    padding: 0.8rem; /* Más espacio dentro del input */
+}
+
+/* Botón principal */
+ion-button {
+    margin: 1rem 0;
+    --border-radius: 15px; /* Bordes más redondeados */
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.05); /* Un poco más de escala para el hover */
+        background-color: #81C784; /* Fondo verde suave al hacer hover */
+    }
+
+    &[color="primary"] {
+        --background: #A5D6A7; /* Verde pastel */
+        --background-hover: #81C784; 
+    }
+
+    ion-icon {
+        font-size: 1.4rem; /* Icono un poco más grande */
+        margin-right: 0.6rem;
+    }
+}
+
+/* Tarjetas y listas */
+ion-list {
+    background: #dcdeff; /* Fondo suave para las listas */
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* Ítems de la lista */
+ion-item {
+    --background: transparent; /* Sin fondo para los ítems */
+    --color: #5D5D5D;
+}
+
+/* Etiquetas */
+ion-label {
+    color: #666; /* Color gris para etiquetas */
+    font-weight: 500;
+}
+
+/* Iconos */
+ion-icon {
+    color: #8F94FB; /* Azul pastel */
+}
+
+/* Texto de información */
+.card-content-text {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Texto de advertencia o mensajes */
+ion-toast .toast-wrapper {
+    --background: #FFE4E1; /* Pastel coral */
+    --color: #444;
+}

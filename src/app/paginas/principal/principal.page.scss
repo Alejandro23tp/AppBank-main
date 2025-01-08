@@ -1,0 +1,94 @@
+/* Fondo general */
+ion-content {
+  --background: #a3a6e0; /* Color pastel rosado */
+  color: #444;
+}
+
+/* Encabezado */
+ion-header {
+  ion-toolbar {
+    --background: #F8E8F5; /* Fondo pastel lila claro */
+    --border-color: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    ion-title {
+      font-size: 1.4rem;
+      color: #555;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+/* Tarjetas generales */
+ion-card {
+  margin: 1.5rem auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+
+  ion-card-header {
+    text-align: center;
+
+    ion-card-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #6B6B6B;
+    }
+
+    ion-card-subtitle {
+      font-size: 1rem;
+      color: #A1A1A1;
+      font-style: italic;
+    }
+  }
+}
+
+/* Botones */
+ion-button {
+  margin: 0.5rem 0;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &[color="primary"] {
+    --background: #A5D6A7; /* Verde pastel */
+    --background-hover: #81C784; 
+  }
+
+  &[color="secondary"] {
+    --background: #FFCCBC; /* Naranja pastel */
+    --background-hover: #FFAB91; 
+  }
+
+  &[color="tertiary"] {
+    --background: #B39DDB; /* Morado pastel */
+    --background-hover: #9575CD;
+  }
+
+  ion-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Texto de información */
+.card-content-text {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Tarjetas específicas */
+.welcome-card ion-card-title {
+  color: #6B6B6B;
+}
+
+.info-card ion-card-title {
+  color: #9575CD;
+}
